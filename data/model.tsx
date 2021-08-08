@@ -15,25 +15,25 @@ export let userList: User[] = [
   {
     id: "2",
     name: "Raghav",
-    password: "user1",
+    password: "user2",
     friendList: ["2", "4", "5"],
   },
   {
     id: "3",
     name: "Aryan",
-    password: "user1",
+    password: "user3",
     friendList: ["2", "4", "5"],
   },
   {
     id: "4",
     name: "Aditya",
-    password: "user1",
+    password: "user4",
     friendList: ["2", "4", "5"],
   },
   {
     id: "5",
     name: "Kanishk",
-    password: "user1",
+    password: "user5",
     friendList: ["2", "4", "5"],
   },
 ];

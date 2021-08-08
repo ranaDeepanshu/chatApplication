@@ -18,7 +18,7 @@ export default function Login() {
       userNameRef.current.value,
       passwordRef.current.value
     );
-    router.push(`/user/${userId}`);
+    if (userId) router.push(`/user/${userId}`);
   };
 
   return (
@@ -89,9 +89,8 @@ const StyleLabelInput = React.forwardRef(
   ) => {
     const [css] = useStyletron();
     const [state, setState] = React.useState<string>("");
-    console.log(state);
+    // console.log(state);
     return (
-      // <LabelInputContainer>
       <div
         className={css({
           display: "flex",
@@ -125,7 +124,6 @@ const StyleLabelInput = React.forwardRef(
           placeholder={`Enter Your ${text} here`}
         ></input>
       </div>
-      // </LabelInputContainer>
     );
   }
 );

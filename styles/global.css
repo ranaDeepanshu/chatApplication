@@ -7,3 +7,18 @@ body {
   margin: 0;
   min-width: 140vh;
 }
+
+.user {
+  font-size: 18px;
+  width: min-content;
+  margin: auto 20px auto 0;
+  font-weight: 600;
+  padding: 5px;
+}
+
+.user:hover {
+  color: #1111c1;
+  border-radius: 5px;
+  background-color: #aaa;
+  cursor: pointer;
+}

@@ -1,10 +1,9 @@
 import React from "react";
 import { styled, useStyletron } from "styletron-react";
-import { SpanElement } from "../reusable/html_element";
 import Image from "next/image";
 import image from "../../resources/chatIcon.jpg";
 
-export default function Header() {
+export default function Header({ userName }: { userName?: string }) {
   const Block = styled("div", (props) => ({
     width: "100%",
     height: "50px",
@@ -12,6 +11,7 @@ export default function Header() {
     margin: "0",
     display: "flex",
     boxShadow: "0px 13px 10px -15px",
+    justifyContent: "space-between",
   }));
 
   const [css] = useStyletron();
@@ -32,7 +32,7 @@ export default function Header() {
           chat_bubble_outline
         </SpanElement> */}
         <Image src={image} height={40} width={40}></Image>
-        <SpanElement
+        <span
           className={css({
             fontWeight: 600,
             fontSize: "18px",
@@ -40,8 +40,29 @@ export default function Header() {
           })}
         >
           Chat Application
-        </SpanElement>
+        </span>
       </div>
+
+      {/* {userName != undefined ? (
+        <span
+          className={css({
+            fontSize: "18px",
+            width: "min-content",
+            margin: "auto 20px auto 0",
+            fontWeight: 600,
+            padding: "5px",
+            ":hover": {
+              color: "#1111c1",
+              borderRadius: "5px",
+              backgroundColor: "#aaa",
+              cursor: "pointer",
+            },
+          })}
+        >
+          {userName}
+        </span>
+      ) : null} */}
+      {userName ? <span className="user">{userName}</span> : null}
     </Block>
   );
 }
