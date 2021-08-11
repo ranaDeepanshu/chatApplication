@@ -1,3 +1,8 @@
+import { useStyletron } from "styletron-react";
+
 export default function FriendNameSearchMessageBar() {
-  return <></>;
+  const [css] = useStyletron();
+  return (
+    <div className={css({ height: "30px", backgroundColor: "red" })}></div>
+  );
 }

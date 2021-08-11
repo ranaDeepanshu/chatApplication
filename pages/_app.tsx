@@ -12,7 +12,9 @@ import {
   useStyletron,
 } from "styletron-react";
 
-export default function MyApp({ Component, pageProps }) {
+import type { AppProps /*, AppContext */ } from "next/app";
+
+export default function MyApp({ Component, pageProps }: AppProps) {
   const isServer = typeof window === "undefined";
   const engine = isServer
     ? new Server()

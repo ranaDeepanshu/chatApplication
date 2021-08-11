@@ -23,9 +23,14 @@
     "styletron-engine-atomic": "^1.4.8",
     "styletron-react": "^6.0.1"
   },
+  "eslintConfig": {
+    "parser": "@typescript-eslint/parser"
+  },
   "devDependencies": {
     "@babel/plugin-proposal-do-expressions": "^7.14.5",
     "@types/react": "^17.0.15",
+    "@typescript-eslint/parser": "^4.29.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "typescript": "^4.3.5"
   }
 }

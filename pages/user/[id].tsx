@@ -5,11 +5,14 @@ import React from "react";
 import Header from "../../components/app/header";
 import Aside from "../../components/app/aside";
 import FriendNameSearchMessageBar from "../../components/app/friend-search";
-import MessageWindow from "../../components/app/mesage-window";
-import InputWindow from "../../components/app/input-message";
 import { useStyletron } from "styletron-react";
+import dynamic from "next/dynamic";
 
-interface contextInterface {
+const ChatWindow = dynamic(() => import("../../components/app/chat-window"), {
+  loading: () => <p>loading</p>,
+});
+
+export interface contextInterface {
   friendId: string;
   setFriend: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -49,8 +52,7 @@ export default function UserPage(props: { user: User }) {
             })}
           >
             <FriendNameSearchMessageBar></FriendNameSearchMessageBar>
-            <MessageWindow></MessageWindow>
-            <InputWindow></InputWindow>
+            <ChatWindow filter=""></ChatWindow>
           </div>
         </div>
       </FriendContext.Provider>
