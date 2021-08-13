@@ -1,3 +1,5 @@
+import { messageType } from "../components/app/chat-window";
+
 export interface User {
   id: string;
   name: string;
@@ -39,20 +41,7 @@ export let userList: User[] = [
 ];
 
 export let messages: {
-  [k: string]: { [k: string]: { message: string; sender: 1 | 0 }[] };
-} = {
-  "1": {
-    "2": [
-      {
-        message: "How are You",
-        sender: 1,
-      },
-      {
-        message: "I am fine Thank You",
-        sender: 0,
-      },
-    ],
-  },
-};
+  [k: string]: messageType[];
+} = {};
 
 //min id of the two user will store the messages

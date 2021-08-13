@@ -2,23 +2,24 @@ import MessageWindow from "./message-window";
 import React from "react";
 import InputWindow from "./input-message";
 import { FriendContext } from "../../pages/user/[id]";
-
-interface chatWindowProps {
-  filter: string;
-}
+import { addMessages, getMessage } from "../../data/controller";
 
 export interface messageType {
   text: string;
   id: string;
 }
 
-export default function ChatWindow(props: chatWindowProps) {
-  const [messages, setMessages] = React.useState<messageType[]>([]);
-  const inputElement = React.useRef<HTMLInputElement>(null);
+export default function ChatWindow() {
   const friendTalkingTo = React.useContext(FriendContext);
+  const [messages, setMessages] = React.useState<messageType[]>(() => []);
+  const inputElement = React.useRef<HTMLInputElement>(null);
+  const friendId = React.useRef<string>(friendTalkingTo.friendId);
 
   React.useEffect(() => {
-    setMessages([]);
+    // console.log(messages, "useEffect", friendTalkingTo.friendId);
+    addMessages(friendId.current, messages);
+    setMessages(getMessage(friendTalkingTo.friendId) || []);
+    friendId.current = friendTalkingTo.friendId;
   }, [friendTalkingTo.friendId]);
 
   const handleClick = () => {

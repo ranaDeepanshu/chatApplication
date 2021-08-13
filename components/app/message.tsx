@@ -1,11 +1,12 @@
 import { useStyletron } from "styletron-react";
 import { messageType } from "./chat-window";
+import React from "react";
 
 interface messageComponentType {
   message: messageType;
 }
 
-export default function Message(props: messageComponentType) {
+function MessageComp(props: messageComponentType) {
   const [css] = useStyletron();
   return (
     <span
@@ -34,3 +35,7 @@ export default function Message(props: messageComponentType) {
     </span>
   );
 }
+
+const Message = React.memo(MessageComp);
+
+export default Message;

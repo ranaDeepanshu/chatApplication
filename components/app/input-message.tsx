@@ -63,4 +63,5 @@ const InputWindow = React.forwardRef<HTMLInputElement, inputWindowProps>(
   }
 );
 
+InputWindow.displayName = "InputMessageWindow";
 export default InputWindow;

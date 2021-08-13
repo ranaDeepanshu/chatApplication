@@ -18,6 +18,7 @@ export interface contextInterface {
 }
 
 export const FriendContext = React.createContext<contextInterface | null>(null);
+export const FilterContext = React.createContext<string>("");
 
 export default function UserPage(props: { user: User }) {
   const [currentFriend, setCurrentFriend] = React.useState<string>(
@@ -51,7 +52,7 @@ export default function UserPage(props: { user: User }) {
               width: "80%",
             })}
           >
-            <MessageWindow />
+            <MessageWindowComp />
           </div>
         </div>
       </FriendContext.Provider>
@@ -59,12 +60,24 @@ export default function UserPage(props: { user: User }) {
   );
 }
 
-function MessageWindow() {
+function MessageWindowComp() {
+  const ref = React.useRef<HTMLInputElement>(null);
   const [filter, setFilter] = React.useState<string>("");
+
+  const handleClick = () => {
+    setFilter(ref.current.value);
+  };
+
+  const chatWindow = React.useMemo(() => <ChatWindow></ChatWindow>, []);
   return (
     <>
-      <FriendNameSearchMessageBar></FriendNameSearchMessageBar>
-      <ChatWindow filter=""></ChatWindow>
+      <FriendNameSearchMessageBar
+        ref={ref}
+        handleClick={handleClick}
+      ></FriendNameSearchMessageBar>
+      <FilterContext.Provider value={filter}>
+        {chatWindow}
+      </FilterContext.Provider>
     </>
   );
 }
