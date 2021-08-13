@@ -12,6 +12,7 @@ export default function Header({ userName }: { userName?: string }) {
     display: "flex",
     boxShadow: "0px 13px 10px -15px",
     justifyContent: "space-between",
+    borderBottom: "4px solid rebeccapurple",
   }));
 
   const [css] = useStyletron();

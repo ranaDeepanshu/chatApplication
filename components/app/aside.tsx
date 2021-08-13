@@ -20,11 +20,9 @@ export default function Aside(props: asideProps) {
       className={css({
         width: "20%",
         backgroundColor: "whitesmoke",
-        borderTop: "4px solid rebeccapurple",
         boxShadow: "13px 0px 10px -15px",
         display: "flex",
         flexDirection: "column",
-        borderTopRightRadius: "5px",
       })}
     >
       {friendList.map((val) => {

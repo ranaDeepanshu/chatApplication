@@ -22,3 +22,23 @@ body {
   background-color: #aaa;
   cursor: pointer;
 }
+
+.message {
+  width: 150px;
+  background-color: black;
+  color: #fff;
+  padding: 20px;
+  position: relative;
+  margin: 40px;
+}
+
+.message::after {
+  content: " ";
+  position: absolute;
+  right: 30px;
+  bottom: -15px;
+  border-top: 15px solid black;
+  border-right: 15px solid transparent;
+  border-left: 15px solid transparent;
+  border-bottom: none;
+}

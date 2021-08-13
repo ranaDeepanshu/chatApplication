@@ -51,11 +51,20 @@ export default function UserPage(props: { user: User }) {
               width: "80%",
             })}
           >
-            <FriendNameSearchMessageBar></FriendNameSearchMessageBar>
-            <ChatWindow filter=""></ChatWindow>
+            <MessageWindow />
           </div>
         </div>
       </FriendContext.Provider>
+    </>
+  );
+}
+
+function MessageWindow() {
+  const [filter, setFilter] = React.useState<string>("");
+  return (
+    <>
+      <FriendNameSearchMessageBar></FriendNameSearchMessageBar>
+      <ChatWindow filter=""></ChatWindow>
     </>
   );
 }
